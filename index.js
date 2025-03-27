@@ -184,8 +184,15 @@ const savetube = {
 };
 
 // Script
-const XToken = "YOUR_BOT_TOKEN";
+const XToken = "8117763826:AAGgUTSbMW4ZcSO81RiclxTSs_TCVQnSHQA";
 const XBotz = new XTelegram(XToken, { polling: true });
+
+XBotz.onText(/\/start/, async (msg) => {
+  const chatId = msg.chat.id;
+  const caption = "*Simple Menu By @XBotzzz*\n\n/ytmp4 <url>\n/ytmp3 <url>\n\nSimple to use! and don't forget to donate [Me](https://saweria.co/xaixl)";
+  const foto = "https://i.pinimg.com/736x/c6/97/c3/c697c3b2c59d6da48e4ccaceeee94f0d.jpg";
+  XBotz.sendPhoto(chatId, foto, { caption, parse_mode: "Markdown" });
+});
 
 XBotz.onText(/\/ytmp4 (.+)/, async (msg, match) => {
   const chatId = msg.chat.id;
